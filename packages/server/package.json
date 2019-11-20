@@ -1,0 +1,23 @@
+{
+  "name": "hd_mock_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -e ts  --exec \"yarn run compile\"",
+    "compile": "tsc && node ./dist/server.js",
+    "pm2": "pm2 start process.json"
+  },
+  "dependencies": {
+    "hapi": "^18.1.0",
+    "mysql2": "^1.7.0",
+    "require-directory": "^2.1.1",
+    "sequelize": "^5.19.6"
+  },
+  "devDependencies": {
+    "@types/hapi": "^18.0.2",
+    "@types/node": "^12.7.12",
+    "nodemon": "^1.19.3",
+    "typescript": "^3.6.4"
+  }
+}

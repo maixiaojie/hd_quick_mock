@@ -1,0 +1,24 @@
+{
+    "apps": [
+      {
+        "name": "hd_mock",
+        "cwd": "./dist",
+        "script": "server.js",
+        "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "error_file": "log/node_app/node-hd_mock.stderr.log",
+        "out_file": "log/node_hd_mock.stdout.log",
+        "pid_file": "pids/node_hd_mock-api.pid",
+        "instances": 1,
+        "min_uptime": "200s",
+        "max_restarts": 10,
+        "max_memory_restart": "100M",
+        "cron_restart": "0 0 1 * * *",
+        "watch": false,
+        "merge_logs": true,
+        "exec_interpreter": "node",
+        "exec_mode": "cluster_mode",
+        "autorestart": false,
+        "vizion": false
+      }
+    ]
+  }

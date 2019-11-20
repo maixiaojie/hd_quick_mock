@@ -1,0 +1,7 @@
+{
+  "name": "hd_quick_mock",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.18.5"
+  }
+}
