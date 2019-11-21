@@ -3,5 +3,8 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.18.5"
+  },
+  "dependencies": {
+    "sass-loader": "^8.0.0"
   }
 }
