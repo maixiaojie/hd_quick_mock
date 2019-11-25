@@ -5,12 +5,41 @@ import { ProjectData } from '@/types/views/project.interface'
 
 @Component({})
 export default class About extends Vue {
-  // Getter
-  // @Getter project.author
-    
-  // Action
-  // @Action GET_DATA_ASYN
+  info = {
+    projectID: "123134s3ad",
+    name: "xxx项目API",
+    baseUrl: "/api/vas",
+    desc: "这个项目xxxxxxxxxxxxxxxxxxx"
+  }
 
+  columns = [{
+    title: '接口id',
+    dataIndex: 'api_id',
+    sorter: true
+  }, {
+    title: '请求方法',
+    dataIndex: 'api_method'
+  }, {
+    title: '接口名称',
+    dataIndex: 'api_name'
+  }, {
+    title: '接口url',
+    dataIndex: 'api_url'
+  }, {
+    title: '接口描述',
+    dataIndex: 'api_desc'
+  }, {
+    title: '操作',
+    dataIndex: 'operate',
+    scopedSlots: { customRender: 'operate' }
+  }]
+  tableData = [{
+    api_id: '1',
+    api_method: 'GET',
+    api_name: '添加用户',
+    api_url: '/user/add',
+    api_desc: '添加用户。。。。。'
+  }]
   // data
   data: ProjectData = {
     pageName: 'project'
@@ -19,7 +48,7 @@ export default class About extends Vue {
   created() {
     //
   }
-    
+
   activated() {
     //
   }
@@ -32,5 +61,8 @@ export default class About extends Vue {
   init() {
     //
   }
-    
+  detail(i: string, record: object) {
+    console.log(i, record)
+  }
+
 }

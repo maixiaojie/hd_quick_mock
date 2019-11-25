@@ -10,7 +10,7 @@ import Project from '@/components/project.vue'
 export default class About extends Vue {
   // Getter
   // @Getter dashboard.author
-    
+
   // Action
   // @Action GET_DATA_ASYN
   projectList = [{
@@ -46,7 +46,7 @@ export default class About extends Vue {
   created() {
     //
   }
-    
+
   activated() {
     //
   }
@@ -59,8 +59,8 @@ export default class About extends Vue {
   init() {
     //
   }
-  
+
   handleEditClick(id: string) {
-    console.log(id)
+    this.$router.push({ name: "project", query: { id } })
   }
 }

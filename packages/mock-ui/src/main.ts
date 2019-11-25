@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { Button, Row, Col, Icon, Menu, Dropdown, Avatar, Spin } from "ant-design-vue" // 组件
+import { Button, Row, Col, Icon, Menu, Dropdown, Avatar, Spin, Table, Tag } from "ant-design-vue" // 组件
 const MenuItem = Menu.Item
 
 Vue.component(Button.name, Button)
@@ -15,6 +15,8 @@ Vue.component(MenuItem.name, MenuItem)
 Vue.component(Dropdown.name, Dropdown)
 Vue.component(Avatar.name, Avatar)
 Vue.component(Spin.name, Spin)
+Vue.component(Table.name, Table)
+Vue.component(Tag.name, Tag)
 
 Vue.config.productionTip = false
 
