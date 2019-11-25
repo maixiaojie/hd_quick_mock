@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../views/index/index.vue'
+import { Store } from 'vuex'
 
 Vue.use(VueRouter)
 
@@ -33,10 +34,19 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
+const router:VueRouter = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+router.beforeEach((to, from, next) => {
+  (router.app.$options.store as Store<any>).commit('setLoading')
+  next()
+  
+})
+
+router.afterEach(() => {
+  (router.app.$options.store as Store<any>).commit('cancelLoading')
 })
 
 export default router

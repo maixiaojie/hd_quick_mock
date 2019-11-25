@@ -1,10 +1,12 @@
 import { Component, Vue } from "vue-property-decorator"
-import { Getter, Action } from "vuex-class"
+import { Getter, Action, State } from "vuex-class"
 import { MenuItem } from 'ant-design-vue/types/menu/menu-item'
 @Component({
 })
 export default class Header extends Vue {
 	current: string[] = ['dashboard']
+
+	@Getter loading!: boolean
 	created() {
 		//
 	}

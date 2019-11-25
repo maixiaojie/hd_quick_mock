@@ -25,6 +25,9 @@
               <a-menu-item key="4">退出登录</a-menu-item>
             </a-menu>
           </a-dropdown>
+          <a-spin :spinning="loading">
+            <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
+          </a-spin>
         </div>
         <div class="menuWrapper">
           <a-menu v-model="current" mode="horizontal" @select="MenuSelect">
@@ -79,6 +82,12 @@
     .username {
       padding: 0 5px;
     }
+  }
+  .ant-spin {
+    margin: 0 0px 0 30px;
+        display: inline-block;
+        position: static;
+    min-width: 20px;
   }
 }
 .menuWrapper {
