@@ -82,7 +82,7 @@
   }
 }
 .menuWrapper {
-  float: right;
+  float: left;
   height: @header-height;
   line-height: @header-height;
   .ant-menu-horizontal {
