@@ -26,5 +26,4 @@ export default class Header extends Vue {
 			path: `/${item.key}`
 		})
 	}
-
 }
