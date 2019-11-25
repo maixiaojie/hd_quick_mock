@@ -18,7 +18,10 @@ module.exports = {
     "space-before-function-paren": "off",
     "no-template-curly-in-string": "off",
     "no-tabs": "off",
-    "indent": "off"
+    "indent": "off",
+    "no-proto": "off",
+    "no-unexpected-multiline": "off",
+    "func-call-spacing": "off"
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
