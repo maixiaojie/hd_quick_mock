@@ -25,10 +25,14 @@ module.exports = {
     modules: false, // 启用 CSS modules
     extract: true, // 是否使用css分离插件
     sourceMap: false, // 开启 CSS source maps?
-    loaderOptions: {} // css预设器配置项
+    loaderOptions: {
+      less: {
+        javascriptEnabled: true
+      }
+    } // css预设器配置项
   },
   devServer: {
-    port: 8080, // 端口
-    proxy: 'https://www.easy-mock.com' // 设置代理
+    // port: 8080, // 端口
+    // proxy: 'https://www.easy-mock.com' // 设置代理
   }
 }
