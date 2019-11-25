@@ -1,6 +1,7 @@
 <template>
   <div class="index-wrap">
     {{data.pageName}}
+    <a-button type="primary">as</a-button>
   </div>
 </template>
 
