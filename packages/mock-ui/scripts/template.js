@@ -142,22 +142,48 @@ export const getData = () => {
 }
 
 `
-if (!fs.existsSync(`${basePath}\\views\\${dirName}`)) {
-  fs.mkdirSync(`${basePath}\\views\\${dirName}`) // mkdir
+const winCreate = () => {
+
+  if (!fs.existsSync(`${basePath}\\views\\${dirName}`)) {
+    fs.mkdirSync(`${basePath}\\views\\${dirName}`) // mkdir
+  }
+
+  process.chdir(`${basePath}\\views\\${dirName}`) // cd views
+  fs.writeFileSync(`index.vue`, VueTep) // vue 
+  fs.writeFileSync(`index.ts`, tsTep) // ts
+  fs.writeFileSync(`index.less`, lessTep) // less
+
+  process.chdir(`${basePath}\\types\\views`) // cd types
+  fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
+
+  process.chdir(`${basePath}\\store\\module`) // cd store
+  fs.writeFileSync(`${dirName}.ts`, vuexTep) // vuex
+
+  process.chdir(`${basePath}\\api`) // cd api
+  fs.writeFileSync(`${dirName}.ts`, apiTep) // api
+
 }
+const macCreate = () => {
 
-process.chdir(`${basePath}\\views\\${dirName}`) // cd views
-fs.writeFileSync(`index.vue`, VueTep) // vue 
-fs.writeFileSync(`index.ts`, tsTep) // ts
-fs.writeFileSync(`index.less`, lessTep) // less
+  if (!fs.existsSync(`${basePath}/views/${dirName}`)) {
+    fs.mkdirSync(`${basePath}/views/${dirName}`) // mkdir
+  }
 
-process.chdir(`${basePath}\\types\\views`) // cd types
-fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
+  process.chdir(`${basePath}/views/${dirName}`) // cd views
+  fs.writeFileSync(`index.vue`, VueTep) // vue 
+  fs.writeFileSync(`index.ts`, tsTep) // ts
+  fs.writeFileSync(`index.less`, lessTep) // less
 
-process.chdir(`${basePath}\\store\\module`) // cd store
-fs.writeFileSync(`${dirName}.ts`, vuexTep) // vuex
+  process.chdir(`${basePath}/types/views`) // cd types
+  fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
 
-process.chdir(`${basePath}\\api`) // cd api
-fs.writeFileSync(`${dirName}.ts`, apiTep) // api
+  process.chdir(`${basePath}/store/module`) // cd store
+  fs.writeFileSync(`${dirName}.ts`, vuexTep) // vuex
 
+  process.chdir(`${basePath}/api`) // cd api
+  fs.writeFileSync(`${dirName}.ts`, apiTep) // api
+
+}
+// winCreate()
+macCreate()
 process.exit(0)
