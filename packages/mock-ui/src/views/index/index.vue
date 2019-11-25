@@ -1,7 +1,9 @@
 <template>
   <div class="index-wrap">
     <Header></Header>
-    <a-button type="primary">as</a-button>
+    <div class="wrapper">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
