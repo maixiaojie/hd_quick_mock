@@ -1,5 +1,5 @@
 <template>
-  <div class="about-wrap">
+  <div class="dashboard-wrap">
     {{data.pageName}}
   </div>
 </template>

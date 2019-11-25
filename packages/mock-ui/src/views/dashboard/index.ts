@@ -1,19 +1,19 @@
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
-import { AboutData } from '@/types/views/about.interface'
+import { DashboardData } from '@/types/views/dashboard.interface'
 // import {  } from "@/components" // 组件
 
 @Component({})
 export default class About extends Vue {
   // Getter
-  // @Getter about.author
+  // @Getter dashboard.author
     
   // Action
   // @Action GET_DATA_ASYN
 
   // data
-  data: AboutData = {
-    pageName: 'about'
+  data: DashboardData = {
+    pageName: 'dashboard'
   }
 
   created() {
