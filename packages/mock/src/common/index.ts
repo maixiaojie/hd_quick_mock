@@ -1,3 +1,5 @@
+var _ = require('lodash')
+
 var common = {
     uuid(len: number, radix?: number) :string {
         var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
@@ -24,7 +26,9 @@ var common = {
             }
         }
         return uuid.join('');
+    },
+    startsWith(string: string = '', target: string, position: number = 0) {
+        return _.startsWith(string, target, position)
     }
 }
-
 export default common;
