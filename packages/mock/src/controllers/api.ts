@@ -97,7 +97,7 @@ class ApiController {
         try {
             let selector = { _id: db.get_id(id) }
             //全量更新
-            let res = await db.update('api', selector, data, {})
+            let res = await db.updateOne('api', selector, data, {})
             return {
                 error_no: 0,
                 data: [],

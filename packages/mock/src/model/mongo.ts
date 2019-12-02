@@ -62,7 +62,7 @@ class Db {
             })
         })
     }
-    async update(tableName, selector, document, options?) {
+    async updateOne(tableName, selector, document, options?) {
         let option = Object.assign(options, {})
         return new Promise( (resolve, reject) => {
             this.db.collection(tableName).update(selector, document, option, (err, result) => {
