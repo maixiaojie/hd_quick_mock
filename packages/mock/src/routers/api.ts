@@ -6,7 +6,17 @@ const api = [
         handler: apiController.add
     },
     {
-        path: '/api/list/{pageNum}/{pageSize}',
+        path: '/api/get/{api_id}',
+        method: 'get',
+        handler: apiController.getOne
+    },
+    {
+        path: '/api/update/{api_id}',
+        method: 'get',
+        handler: apiController.update
+    },
+    {
+        path: '/api/list/{pageSize}/{pageNum}',
         method: 'get',
         handler: apiController.list
     }

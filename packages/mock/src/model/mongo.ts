@@ -1,3 +1,4 @@
+
 const config = require('../config/mongo')
 const MongoClient = config.MongoClient
 const url = config.url
@@ -10,6 +11,9 @@ class Db {
         this.client = new MongoClient(url, { useUnifiedTopology: true, useNewUrlParser: true })
         this.connect()
     }
+    get_id(id) {
+        return require('mongodb').ObjectID(id)
+    } 
     connect() {
         return new Promise((resolve, reject) => {
             this.client.connect((err, client) => {
@@ -35,12 +39,47 @@ class Db {
             })
         })
     }
-    async find(tableName, option) {
+    async find(tableName, option, others?) {
+        let other = Object.assign(others, {})
         return new Promise((resolve, reject) => {
-            this.db.collection(tableName).find(option).toArray((err, result) => {
+            this.db.collection(tableName).find(option, other).toArray((err, result) => {
                 if (err) {
                     reject(err)
                 } else {
+                    resolve(result)
+                }
+            })
+        })
+    }
+    async findOne(tableName, options) {
+        return new Promise( (resolve, reject) => {
+            this.db.collection(tableName).findOne(options, (err, result) => {
+                if(err) {
+                    reject(err)
+                }else {
+                    resolve(result)
+                }
+            })
+        })
+    }
+    async update(tableName, selector, document, options?) {
+        let option = Object.assign(options, {})
+        return new Promise( (resolve, reject) => {
+            this.db.collection(tableName).update(selector, document, option, (err, result) => {
+                if(err) {
+                    reject(err)
+                }else {
+                    resolve(result)
+                }
+            })
+        }) 
+    }
+    async count(tableName, options) {
+        return new Promise( (resolve, reject) => {
+            this.db.collection(tableName).count(options, (err, result) => {
+                if(err) {
+                    reject(err)
+                }else {
                     resolve(result)
                 }
             })
