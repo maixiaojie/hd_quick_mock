@@ -2,6 +2,8 @@
   "name": "hd_quick_mock",
   "private": true,
   "devDependencies": {
+    "@types/mongodb": "^3.3.11",
+    "@types/node": "^12.12.14",
     "lerna": "^3.18.5"
   },
   "dependencies": {
