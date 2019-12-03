@@ -26,6 +26,11 @@ const routes = [
         path: '/recover',
         name: 'recover',
         component: () => import('../views/recover/index.vue')
+      },
+      {
+        path: '/api',
+        name: 'api',
+        component: () => import('../views/api/index.vue')
       }
     ]
   },

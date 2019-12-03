@@ -7,6 +7,9 @@ class ProjectController {
                url: '/des',
                desc:'描述'
             }
+            data = Object.assign(data, {
+                ctime: +new Date()
+            })
             await db.insert('project', data)
 
             return {

@@ -11,7 +11,7 @@
       </a-col>
       <a-col :span="6">
         <div class="operation">
-          <div class="btn create">添加接口</div>
+          <div class="btn create" @click="create">添加接口</div>
           <div class="btn edit">编辑项目</div>
           <div class="btn delete">删除项目</div>
         </div>

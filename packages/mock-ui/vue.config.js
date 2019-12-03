@@ -1,5 +1,5 @@
 const path = require('path')
-
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 const resolve = dir => {
   return path.join(__dirname, dir)
 }
@@ -30,6 +30,9 @@ module.exports = {
         javascriptEnabled: true
       }
     } // css预设器配置项
+  },
+  configureWebpack: config => {
+    config.plugins.push(new MonacoWebpackPlugin())
   },
   devServer: {
     // port: 8080, // 端口
