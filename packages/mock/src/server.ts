@@ -1,6 +1,7 @@
 import * as hapi from 'hapi';
 import routers from './routers/index'
 import ApiRouters from './routers/api'
+import projectRouters from './routers/project'
 import indexController from './controllers/index';
 const server: hapi.Server = new hapi.Server({
     host: 'localhost',
@@ -11,6 +12,7 @@ const server: hapi.Server = new hapi.Server({
 server.route({method: "*", path: '/{p*}', handler: indexController.commonHandler});
 server.route(routers);
 server.route(ApiRouters);
+server.route(projectRouters);
 async function start() {
     try {
         await server.start();

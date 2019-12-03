@@ -1,30 +1,13 @@
 import db from '../model/mongo'
-class ApiController {
+class ProjectController {
     async add(req, res?): Promise<Object> {
         try {
             let data = {
-                project_id: '1',
-                method: 'POST',
-                url: '/mock/shop/add',
-                desc: '接口描述',
-                params: [{
-                    name: 'pageSize',
-                    type: 'int',
-                    desc: '每页数目',
-                    require: true
-                }, {
-                    name: 'pagenum',
-                    type: 'int',
-                    desc: '每页数目',
-                    require: true
-                }],
-                mockJson: {
-                    'apilist|1-10': [{
-                        'id|+1': 1
-                    }]
-                }
+               name: 'xxxx项目',
+               url: '/des',
+               desc:'描述'
             }
-            await db.insert('api', data)
+            await db.insert('project', data)
 
             return {
                 error_no: 0,
@@ -49,8 +32,8 @@ class ApiController {
             let options = {
                 project_id: '1'
             }
-            let data = await db.find('api', options, { "limit": pageNum, "skip": pageSize })
-            let total_num = await db.count('api', options)
+            let data = await db.find('project', options, { "limit": pageNum, "skip": pageSize })
+            let total_num = await db.count('project', options)
             return {
                 error_no: 0,
                 data: {
@@ -70,9 +53,9 @@ class ApiController {
     }
 
     async getOne(req, res?): Promise<Object> {
-        let id = req.params.api_id;
+        let id = req.params.project_id;
         try {
-            let data = await db.findOne('api', { _id: db.get_id(id) })
+            let data = await db.findOne('project', { _id: db.get_id(id) })
             return {
                 error_no: 0,
                 data,
@@ -89,14 +72,14 @@ class ApiController {
     }
 
     async update(req, res?): Promise<Object> {
-        let id = req.params.api_id;
+        let id = req.params.project_id;
         let data = {
             project_id: '2'
         }
         try {
             let selector = { _id: db.get_id(id) }
             //全量更新
-            let res = await db.updateOne('api', selector, data, {})
+            let res = await db.updateOne('project', selector, data, {})
             return {
                 error_no: 0,
                 data: [],
@@ -112,5 +95,5 @@ class ApiController {
         }
     }
 }
-let apiController = new ApiController()
-export default apiController;
+let projectController = new ProjectController()
+export default projectController;
