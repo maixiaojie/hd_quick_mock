@@ -14,6 +14,7 @@ const reqs = function(request, h) {
         return h.continue;
     }
 }
+
 const internals: Internals = {myMiddleware: reqs}
 export const myMiddleware = {
     name: 'myMiddleware',
