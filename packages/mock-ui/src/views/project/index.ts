@@ -62,7 +62,7 @@ export default class About extends Vue {
     //
   }
   create() {
-    this.$router.push({ name: "api" })
+    this.$router.push({ name: "api", query: { project_id: this.$route.query.id } })
   }
   detail(i: string, record: object) {
     console.log(i, record)

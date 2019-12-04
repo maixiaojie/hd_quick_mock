@@ -15,6 +15,7 @@ export default class About extends Vue {
   data: ApiData = {
     pageName: 'api'
   }
+  form: any = null
   editor: any = null
   info: ApiInfo = {
     project_id: '',
@@ -32,6 +33,8 @@ export default class About extends Vue {
   }
 
   mounted() {
+    this.info.project_id = this.$route.query.project_id as string | null
+    this.form = this.$form.createForm(this, { name: 'dynamic_rule' } as any)
     let el: any = document.getElementById('container')
     this.editor = monaco.editor.create(el, {
       value: '{"a": 1, "b": 2}',
@@ -45,9 +48,24 @@ export default class About extends Vue {
   init() {
     //
   }
+  handleMethodChange(v) {
+    this.info.method = v
+  }
+  handleUrlBlur(e) {
+    const value = e.target.value
+    this.info.url = value
+  }
+  handleUrlDesc(e) {
+    const value = e.target.value
+    this.info.desc = value
+  }
   create() {
     this.info.mock = this.editor.getValue()
-    console.log(this.info)
+    this.form.validateFields(err => {
+      if (!err) {
+        console.log(this.info)
+      }
+    })
   }
 
 }

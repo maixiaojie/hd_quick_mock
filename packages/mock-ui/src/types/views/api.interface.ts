@@ -10,8 +10,8 @@ export interface ApiState {
 }
 
 export interface ApiInfo {
-  project_id: string
-  api_id?: string
+  project_id: string | (string | null)
+  api_id?: string | null
   mock: any
   method: string
   desc: string
