@@ -39,7 +39,7 @@ class Db {
             })
         })
     }
-    async find(tableName, option, others?) {
+    async find(tableName, option, others = {}) {
         let other = Object.assign(others, {})
         return new Promise((resolve, reject) => {
             this.db.collection(tableName).find(option, other).toArray((err, result) => {

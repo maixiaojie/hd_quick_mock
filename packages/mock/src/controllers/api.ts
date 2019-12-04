@@ -24,22 +24,29 @@ class ApiController {
             //         }]
             //     }
             // }
-            console.log(req.payload)
-            let data = Object.assign(req.payload, {ctime: +new Date()})
-            await db.insert('api', data)
-
-            return {
-                error_no: 0,
-                data: [],
-                error_msg: ''
+            let data = Object.assign(req.payload, { ctime: +new Date() })
+            let res: any = await db.find('api', { "url": req.payload.url })
+            if (res && res.length > 0) {
+                return {
+                    error_no: 1,
+                    data: [],
+                    error_msg: 'url已经存在'
+                }
+            } else {
+                await db.insert('api', data)
+                return {
+                    error_no: 0,
+                    data: [],
+                    error_msg: ''
+                }
             }
         } catch (e) {
+            console.log(e)
             return {
                 error_no: 1,
                 data: e,
                 error_msg: '添加失败'
             }
-            console.log(e)
         }
 
     }
