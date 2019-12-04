@@ -3,6 +3,7 @@ import { Getter, Action } from "vuex-class"
 import { ApiData, ApiInfo } from '@/types/views/api.interface'
 // import {  } from "@/components" // 组件
 import * as monaco from 'monaco-editor'
+import { addApi } from '@/api/api'
 @Component({})
 export default class About extends Vue {
   // Getter
@@ -61,9 +62,18 @@ export default class About extends Vue {
   }
   create() {
     this.info.mock = this.editor.getValue()
-    this.form.validateFields(err => {
+    this.form.validateFields(async err => {
+      if (this.info.mock.length === 0) {
+        return
+      }
       if (!err) {
         console.log(this.info)
+        try {
+          let data = await addApi(this.info)
+          console.log(data)
+        } catch (e) {
+          console && console.log(e)
+        }
       }
     })
   }

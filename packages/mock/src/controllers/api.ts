@@ -2,28 +2,30 @@ import db from '../model/mongo'
 class ApiController {
     async add(req, res?): Promise<Object> {
         try {
-            let data = {
-                project_id: '1',
-                method: 'POST',
-                url: '/mock/shop/add',
-                desc: '接口描述',
-                params: [{
-                    name: 'pageSize',
-                    type: 'int',
-                    desc: '每页数目',
-                    require: true
-                }, {
-                    name: 'pagenum',
-                    type: 'int',
-                    desc: '每页数目',
-                    require: true
-                }],
-                mockJson: {
-                    'apilist|1-10': [{
-                        'id|+1': 1
-                    }]
-                }
-            }
+            // let data = {
+            //     project_id: '1',
+            //     method: 'POST',
+            //     url: '/mock/shop/add',
+            //     desc: '接口描述',
+            //     params: [{
+            //         name: 'pageSize',
+            //         type: 'int',
+            //         desc: '每页数目',
+            //         require: true
+            //     }, {
+            //         name: 'pagenum',
+            //         type: 'int',
+            //         desc: '每页数目',
+            //         require: true
+            //     }],
+            //     mockJson: {
+            //         'apilist|1-10': [{
+            //             'id|+1': 1
+            //         }]
+            //     }
+            // }
+            console.log(req.payload)
+            let data = Object.assign(req.payload, {ctime: +new Date()})
             await db.insert('api', data)
 
             return {

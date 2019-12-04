@@ -1,6 +1,10 @@
-import Api from '@/utils/request'
+import request from '@/utils/request'
 
-export const getData = () => {
-  // return Api.getData()
+let baseUrl = 'http://localhost:3001/api'
+export const addApi = (data) => {
+  return request({
+    url: `${baseUrl}/add`,
+    method: 'post',
+    data
+  })
 }
-

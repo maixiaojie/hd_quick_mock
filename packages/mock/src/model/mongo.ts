@@ -6,7 +6,7 @@ const dbName = config.dbName
 
 class Db {
     client = null
-    db = null
+    db: any = ''
     constructor() {
         this.client = new MongoClient(url, { useUnifiedTopology: true, useNewUrlParser: true })
         this.connect()

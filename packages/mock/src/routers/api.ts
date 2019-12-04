@@ -2,7 +2,7 @@ import apiController from '../controllers/api';
 const api = [
     {
         path: '/api/add',
-        method: 'get',
+        method: 'post',
         handler: apiController.add
     },
     {
