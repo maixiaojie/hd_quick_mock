@@ -1,6 +1,6 @@
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
-import { ApiData } from '@/types/views/api.interface'
+import { ApiData, ApiInfo } from '@/types/views/api.interface'
 // import {  } from "@/components" // 组件
 import * as monaco from 'monaco-editor'
 @Component({})
@@ -16,6 +16,13 @@ export default class About extends Vue {
     pageName: 'api'
   }
   editor: any = null
+  info: ApiInfo = {
+    project_id: '',
+    method: 'get',
+    url: '',
+    desc: '',
+    mock: ''
+  }
   created() {
     //
   }
@@ -29,7 +36,6 @@ export default class About extends Vue {
     this.editor = monaco.editor.create(el, {
       value: '{"a": 1, "b": 2}',
       language: "json",
-      // allowComments: true,
       theme: "vs-dark"
     })
     this.editor.trigger('any', 'editor.action.formatDocument')
@@ -39,9 +45,9 @@ export default class About extends Vue {
   init() {
     //
   }
-  getValue() {
-    let value = this.editor.getValue()
-    console.log(value)
+  create() {
+    this.info.mock = this.editor.getValue()
+    console.log(this.info)
   }
 
 }

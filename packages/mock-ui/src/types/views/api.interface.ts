@@ -1,3 +1,4 @@
+import project from '../../../../mock/src/routers/project';
 // api.Data 参数类型
 export interface ApiData {
   pageName: string
@@ -6,6 +7,16 @@ export interface ApiData {
 // VUEX api.State 参数类型
 export interface ApiState {
   data?: any
+}
+
+export interface ApiInfo {
+  project_id: string
+  api_id?: string
+  mock: any
+  method: string
+  desc: string
+  url: string
+
 }
 
 // GET_DATA_ASYN 接口参数类型
