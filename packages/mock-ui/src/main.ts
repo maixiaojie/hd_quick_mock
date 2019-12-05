@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { Button, Row, Col, Icon, Menu, Dropdown, Avatar, Spin, Table, Tag, Form, Input, Select, message } from "ant-design-vue" // 组件
+import { Button, Row, Col, Icon, Menu, Dropdown, Avatar, Spin, Table, Tag, Form, Input, Select, Pagination, message } from "ant-design-vue" // 组件
 const MenuItem = Menu.Item
 const FormItem = Form.Item
 const SelectOption = Select.Option
@@ -23,6 +23,7 @@ Vue.component(FormItem.name, FormItem)
 Vue.component(Input.name, Input)
 Vue.component(Select.name, Select)
 Vue.component(SelectOption.name, SelectOption)
+Vue.component(Pagination.name, Pagination)
 
 Vue.config.productionTip = false
 Vue.prototype.$message = message

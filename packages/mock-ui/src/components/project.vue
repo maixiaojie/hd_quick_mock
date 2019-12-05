@@ -14,11 +14,11 @@
 <style lang="less">
 .card {
   color: white;
-  width: 270px;
+  width: 280px;
   float: left;
   border-radius: 6px;
   padding: 12px;
-  margin: 12px 15px;
+  margin: 12px 10px;
   background: #b24592; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom right,

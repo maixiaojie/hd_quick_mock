@@ -32,14 +32,12 @@ class ProjectController {
     }
 
     async list(req, res?): Promise<Object> {
-        var pageSize = parseInt(req.params.pageSize) || 1;
-        var pageNum = parseInt(req.params.pageNum) || 10;
+        var pageNum = parseInt(req.params.pageNum) || 1;
+        var pageSize = parseInt(req.params.pageSize) || 10;
         try {
-            let options = {
-                project_id: '1'
-            }
-            let data = await db.find('project', options, { "limit": pageNum, "skip": pageSize })
-            let total_num = await db.count('project', options)
+            let skip = (pageNum - 1 ) * pageSize;
+            let data = await db.find('project', {}, { "limit": pageSize, "skip": skip })
+            let total_num = await db.count('project')
             return {
                 error_no: 0,
                 data: {

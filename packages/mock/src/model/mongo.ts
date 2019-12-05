@@ -40,10 +40,11 @@ class Db {
             })
         })
     }
-    async find(tableName, option, others = {}) {
-        let other = Object.assign(others, {})
+    async find(tableName, option?, others?) {
+        let other = Object.assign({}, others)
+        let options = Object.assign({}, option)
         return new Promise((resolve, reject) => {
-            this.db.collection(tableName).find(option, other).toArray((err, result) => {
+            this.db.collection(tableName).find(options, other).toArray((err, result) => {
                 if (err) {
                     reject(err)
                 } else {
@@ -75,9 +76,10 @@ class Db {
             })
         }) 
     }
-    async count(tableName, options) {
+    async count(tableName, options?) {
+        let option = Object.assign({}, options)
         return new Promise( (resolve, reject) => {
-            this.db.collection(tableName).count(options, (err, result) => {
+            this.db.collection(tableName).count(option, (err, result) => {
                 if(err) {
                     reject(err)
                 }else {

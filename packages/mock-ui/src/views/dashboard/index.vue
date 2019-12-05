@@ -1,14 +1,18 @@
 <template>
   <div class="dashboard-wrap">
     <div class="projectWrapper">
+      <div class="page-wrapper">
+        <a-pagination showQuickJumper :showTotal="total => `共 ${total} 条`" :defaultCurrent="pageNum" :pageSize="pageSize" :total="total_num" @change="pageChange" />
+      </div>
       <Project
         v-for="item in projectList"
-        :key="item.projectID"
-        :projectID="item.projectID"
+        :key="item._id"
+        :projectID="item._id"
         :name="item.name"
-        :baseUrl="item.baseUrl"
+        :baseUrl="item.url"
         @editClick="handleEditClick"
       ></Project>
+      
     </div>
     <div class="create" @click="create">+</div>
   </div>

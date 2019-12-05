@@ -16,7 +16,7 @@ const project = [
         handler: projectController.update
     },
     {
-        path: '/api/project/list/{pageSize}/{pageNum}',
+        path: '/api/project/list/{pageNum}/{pageSize}',
         method: 'get',
         handler: projectController.list
     }

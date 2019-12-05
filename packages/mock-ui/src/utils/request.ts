@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '../store'
 let base = process.env.VUE_APP_SERVER_BASE_URL
 const service = axios.create({
     baseURL: base,
@@ -7,6 +8,7 @@ const service = axios.create({
 
 service.interceptors.request.use(
     config => {
+        store.commit('setLoading')
         const common = {
             timestamp: +new Date()
         }
@@ -31,11 +33,13 @@ service.interceptors.request.use(
         return config
     },
     error => {
+        store.commit('cancelLoading')
         Promise.reject(error)
     }
 )
 service.interceptors.response.use(
     response => {
+        store.commit('cancelLoading')
         const res = response.data
         if (res.error_no === 0) {
             return Promise.resolve(res.data)
@@ -44,6 +48,7 @@ service.interceptors.response.use(
         }
     },
     error => {
+        store.commit('cancelLoading')
         return Promise.reject(error)
     }
 )

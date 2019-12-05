@@ -5,7 +5,9 @@ type Internals = {
 const reqs = function(request, h) {
     if (request.method === 'options') {
         return h.continue;
-    }else if(request.mrthod === 'get') {
+    }else if(request.method === 'get') {
+        let {timestamp, ...params} = request.params;
+        request.params = params;
         return h.continue;
     }
     else {

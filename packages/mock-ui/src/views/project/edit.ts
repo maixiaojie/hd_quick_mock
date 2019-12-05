@@ -40,7 +40,9 @@ export default class About extends Vue {
     this.form.validateFields(async err => {
       if (!err) {
         try {
-          let data = await addProject(this.info)
+          let params = JSON.parse(JSON.stringify(this.info))
+          params.url = '/' + params.url
+          let data = await addProject(params)
           this.$message.success('创建成功')
         } catch (e) {
           this.$message.warning(e)

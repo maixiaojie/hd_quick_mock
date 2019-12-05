@@ -4,7 +4,6 @@
             <a-form-item label="项目名称" required>
               <a-input
                 @blur="handleNameBlur"
-                addonBefore="/"
                 type="text"
                 v-decorator="[
               'info.name', {rules: [{required: true, message: '必需参数'}]}]"
