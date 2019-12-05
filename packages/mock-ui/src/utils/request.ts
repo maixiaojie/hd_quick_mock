@@ -1,5 +1,5 @@
 import axios from 'axios'
-let base = process.env.VUE_APP_BASE_URL
+let base = process.env.VUE_APP_SERVER_BASE_URL
 const service = axios.create({
     baseURL: base,
     timeout: 60000
@@ -37,7 +37,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     response => {
         const res = response.data
-        if (res.error_no === '0') {
+        if (res.error_no === 0) {
             return Promise.resolve(res.data)
         } else {
             return Promise.reject(res.error_msg)

@@ -6,7 +6,7 @@ const dbName = config.dbName
 
 class Db {
     client = null
-    db: any = ''
+    db: any = new Object()
     constructor() {
         this.client = new MongoClient(url, { useUnifiedTopology: true, useNewUrlParser: true })
         this.connect()
@@ -15,14 +15,15 @@ class Db {
         return require('mongodb').ObjectID(id)
     } 
     connect() {
+        let that: any = this
         return new Promise((resolve, reject) => {
-            this.client.connect((err, client) => {
+            that.client.connect((err, client) => {
                 if (err) {
                     reject(err)
                 } else {
                     console.log('connected successful to mongo server')
                     const db = client.db(dbName)
-                    this.db = db
+                    that.db = db
                     resolve(db)
                 }
             })

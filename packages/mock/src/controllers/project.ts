@@ -2,20 +2,23 @@ import db from '../model/mongo'
 class ProjectController {
     async add(req, res?): Promise<Object> {
         try {
-            let data = {
-               name: 'xxxx项目',
-               url: '/des',
-               desc:'描述'
-            }
-            data = Object.assign(data, {
+            let data = Object.assign(req.payload, {
                 ctime: +new Date()
             })
-            await db.insert('project', data)
-
-            return {
-                error_no: 0,
-                data: [],
-                error_msg: ''
+            let res: any = await db.find('project', { "url": req.payload.url })
+            if(res && res.length > 0) {
+                return {
+                    error_no: 1,
+                    data: [],
+                    error_msg: '该项目url已经存在'
+                }
+            }else {
+                await db.insert('project', data)
+                return {
+                    error_no: 0,
+                    data: [],
+                    error_msg: ''
+                }
             }
         } catch (e) {
             return {

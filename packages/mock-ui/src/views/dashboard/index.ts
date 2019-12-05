@@ -63,4 +63,7 @@ export default class About extends Vue {
   handleEditClick(id: string) {
     this.$router.push({ name: "project", query: { id } })
   }
+  create() {
+    this.$router.push({ name: "projectEdit", params: { action: 'add' } })
+  }
 }

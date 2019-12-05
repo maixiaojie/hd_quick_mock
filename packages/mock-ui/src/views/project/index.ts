@@ -67,5 +67,8 @@ export default class About extends Vue {
   detail(i: string, record: object) {
     console.log(i, record)
   }
+  toEditProject() {
+    this.$router.push({ name: "projectEdit", params: { action: 'edit' }, query: { id: this.$route.query.id } })
+  }
 
 }

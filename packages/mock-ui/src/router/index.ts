@@ -23,6 +23,11 @@ const routes = [
         component: () => import('../views/project/index.vue')
       },
       {
+        path: '/project/:action',
+        name: 'projectEdit',
+        component: () => import('../views/project/edit.vue')
+      },
+      {
         path: '/recover',
         name: 'recover',
         component: () => import('../views/recover/index.vue')
@@ -44,7 +49,7 @@ const routes = [
   }
 ]
 
-const router:VueRouter = new VueRouter({
+const router: VueRouter = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
@@ -52,7 +57,7 @@ const router:VueRouter = new VueRouter({
 router.beforeEach((to, from, next) => {
   (router.app.$options.store as Store<any>).commit('setLoading')
   next()
-  
+
 })
 
 router.afterEach(() => {

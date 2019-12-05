@@ -10,6 +10,7 @@
         @editClick="handleEditClick"
       ></Project>
     </div>
+    <div class="create" @click="create">+</div>
   </div>
 </template>
 

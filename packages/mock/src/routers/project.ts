@@ -2,7 +2,7 @@ import projectController from '../controllers/project';
 const project = [
     {
         path: '/api/project/add',
-        method: 'get',
+        method: 'post',
         handler: projectController.add
     },
     {

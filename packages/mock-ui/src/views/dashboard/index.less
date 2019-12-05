@@ -1,6 +1,26 @@
 @import "~@/assets/less/variable.less";
 
-.dashboard-wrap, .projectWrapper {
-  width: 100%;
-  float: left;
+.dashboard-wrap {
+  .projectWrapper {
+    width: 100%;
+    float: left;
+  }
+  .create {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    color: white;
+    font-size: 32px;
+    border-radius: 50%;
+    background: #2d8cf0;
+    box-shadow: 0 10px 30px rgba(45,140,240,.4);
+  }
+  .create:hover {
+    background: rgba(45,140,240,.8);
+  }
+  
 }
