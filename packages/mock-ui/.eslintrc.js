@@ -21,7 +21,8 @@ module.exports = {
     "indent": "off",
     "no-proto": "off",
     "no-unexpected-multiline": "off",
-    "func-call-spacing": "off"
+    "func-call-spacing": "off",
+    "camelcase": "off"
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
