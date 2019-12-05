@@ -14,7 +14,7 @@
       ></Project>
       
     </div>
-    <div class="create" @click="create">+</div>
+    <div title="创建新项目" class="create" @click="create">+</div>
   </div>
 </template>
 
