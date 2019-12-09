@@ -10,7 +10,7 @@ import { getProjetList } from '@/api/dashboard'
 })
 export default class About extends Vue {
 
-  projectList: [] = []
+  projectList: Object[] = [{}]
   pageSize: number = 8
   pageNum: number = 1
   total_num: number = 0

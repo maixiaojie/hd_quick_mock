@@ -13,3 +13,11 @@ export const getProjet = (id) => {
     method: 'get'
   })
 }
+
+export const updateProject = (id, data) => {
+  return request({
+    url: `/project/update/${id}`,
+    method: 'post',
+    data
+  })
+}

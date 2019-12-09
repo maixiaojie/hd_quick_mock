@@ -67,7 +67,19 @@ class Db {
     async updateOne(tableName, selector, document, options?) {
         let option = Object.assign(options, {})
         return new Promise( (resolve, reject) => {
-            this.db.collection(tableName).update(selector, document, option, (err, result) => {
+            this.db.collection(tableName).updateOne(selector, document, option, (err, result) => {
+                if(err) {
+                    reject(err)
+                }else {
+                    resolve(result)
+                }
+            })
+        }) 
+    }
+    async save(tableName, document, options?) {
+        let option = Object.assign(options, {})
+        return new Promise( (resolve, reject) => {
+            this.db.collection(tableName).save(document, option, (err, result) => {
                 if(err) {
                     reject(err)
                 }else {

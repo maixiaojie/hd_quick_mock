@@ -4,9 +4,8 @@
             <a-form-item label="项目名称" required>
               <a-input
                 @blur="handleNameBlur"
-                type="text"
                 v-decorator="[
-              'info.name', {rules: [{required: true, message: '必需参数'}]}]"
+              'info.name', {initialValue: info.name, rules: [{required: true, message: '必需参数'}]}]"
                 placeholder
               ></a-input>
             </a-form-item>
@@ -16,7 +15,7 @@
                 addonBefore="/"
                 type="text"
                 v-decorator="[
-              'info.url', {rules: [{required: true, message: '必需参数'}]}]"
+              'info.url', {initialValue: info.url, rules: [{required: true, message: '必需参数'}]}]"
                 placeholder
               ></a-input>
             </a-form-item>
@@ -24,13 +23,13 @@
               <a-input
                 @blur="handleDescBlur"
                 v-decorator="[
-              'info.desc', {rules: [{required: true, message: '必需参数'}]}]"
+              'info.desc', {initialValue: info.desc, rules: [{required: true, message: '必需参数'}]}]"
                 type="text"
                 placeholder
               ></a-input>
             </a-form-item>
             <a-form-item>
-              <a-button @click="create" block style="margin-top:30px;" type="primary">创建</a-button>
+              <a-button @click="create" block style="margin-top:30px;" type="primary">保存</a-button>
             </a-form-item>
           </a-form>
     </div>

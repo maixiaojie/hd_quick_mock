@@ -9,6 +9,7 @@
     "pm2": "pm2 start process.json"
   },
   "dependencies": {
+    "@hapi/joi": "^16.1.8",
     "@types/lodash": "^4.14.149",
     "hapi": "^18.1.0",
     "lodash": "^4.17.15",

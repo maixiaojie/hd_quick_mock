@@ -12,7 +12,7 @@ const project = [
     },
     {
         path: '/api/project/update/{project_id}',
-        method: 'get',
+        method: 'post',
         handler: projectController.update
     },
     {
