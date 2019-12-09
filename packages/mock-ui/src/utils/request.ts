@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '../store'
+import { message } from 'ant-design-vue'
 let base = process.env.VUE_APP_SERVER_BASE_URL
 const service = axios.create({
     baseURL: base,
@@ -44,10 +45,12 @@ service.interceptors.response.use(
         if (res.error_no === 0) {
             return Promise.resolve(res.data)
         } else {
+            message.error(res.error_msg)
             return Promise.reject(res.error_msg)
         }
     },
     error => {
+        message.error(error)
         store.commit('cancelLoading')
         return Promise.reject(error)
     }

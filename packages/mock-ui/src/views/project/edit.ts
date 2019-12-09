@@ -44,6 +44,7 @@ export default class About extends Vue {
           params.url = '/' + params.url
           let data = await addProject(params)
           this.$message.success('创建成功')
+          this.$router.push({ name: 'dashboard' })
         } catch (e) {
           this.$message.warning(e)
           console && console.log(e)

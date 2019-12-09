@@ -4,8 +4,8 @@
       <a-col :span="18">
         <div class="project-detail">
           <h2>{{info.name}}</h2>
-          <p>项目id：{{info.projectID}}</p>
-          <p>项目url：{{info.baseUrl}}</p>
+          <p>项目id：{{info._id}}</p>
+          <p>项目url：{{info.url}}</p>
           <p>项目描述：{{info.desc}}</p>
         </div>
       </a-col>

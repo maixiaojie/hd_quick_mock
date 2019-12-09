@@ -1,15 +1,15 @@
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
 import { ProjectData } from '@/types/views/project.interface'
-// import {  } from "@/components" // 组件
+import { getProjet } from '@/api/project'
 
 @Component({})
 export default class About extends Vue {
   info = {
-    projectID: "123134s3ad",
-    name: "xxx项目API",
-    baseUrl: "/api/vas",
-    desc: "这个项目xxxxxxxxxxxxxxxxxxx"
+    _id: "",
+    name: "",
+    url: "",
+    desc: ""
   }
 
   columns = [{
@@ -46,7 +46,7 @@ export default class About extends Vue {
   }
 
   created() {
-    //
+    this.getProject()
   }
 
   activated() {
@@ -63,6 +63,14 @@ export default class About extends Vue {
   }
   create() {
     this.$router.push({ name: "api", query: { project_id: this.$route.query.id } })
+  }
+  async getProject() {
+    try {
+      let data: any = await getProjet(this.$route.query.id)
+      this.info = data
+    } catch (e) {
+      console && console.log(e)
+    }
   }
   detail(i: string, record: object) {
     console.log(i, record)
