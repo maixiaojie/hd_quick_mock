@@ -3,7 +3,7 @@ const internals = {
         [200, 'ok']
     ])
 }
-// request message wrap
+// response message wrap
 export default class RM{
     constructor(options: any = {}) {
         const { error_no = 200, message = 'ok', data = {}} = options
