@@ -1,6 +1,8 @@
+require('env2')('.env');
 import * as hapi from 'hapi';
 import routers from './routers/index'
 import ApiRouters from './routers/api'
+import LoginRouter from './routers/login'
 import projectRouters from './routers/project'
 import indexController from './controllers/index';
 import { myMiddleware} from './plugins/request'
@@ -15,6 +17,7 @@ server.route({ method: "*", path: '/{p*}', handler: indexController.commonHandle
 server.route(routers);
 server.route(ApiRouters);
 server.route(projectRouters);
+server.route(LoginRouter);
 async function start() {
     try {
         await server.register(myMiddleware)

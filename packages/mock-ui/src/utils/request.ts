@@ -42,7 +42,7 @@ service.interceptors.response.use(
     response => {
         store.commit('cancelLoading')
         const res = response.data
-        if (res.error_no === 0) {
+        if (res.error_no === 200) {
             return Promise.resolve(res.data)
         } else {
             message.error(res.error_msg)

@@ -30,7 +30,6 @@ class ProjectController {
                 data: e,
                 error_msg: '添加失败'
             }
-            console.log(e)
         }
 
     }
