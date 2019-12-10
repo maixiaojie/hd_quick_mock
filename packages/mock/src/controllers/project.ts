@@ -1,6 +1,6 @@
 import db from '../model/mongo'
 const Joi = require('@hapi/joi')
-const url = require('url')
+import RM from '../common/RM'
 import { projectAddSchema } from '../schema/project'
 class ProjectController {
     async add(req, res?): Promise<Object> {
@@ -42,14 +42,7 @@ class ProjectController {
             let skip = (pageNum - 1) * pageSize;
             let data = await db.find('project', {}, { "limit": pageSize, "skip": skip, sort: [['ctime', -1]] })
             let total_num = await db.count('project')
-            return {
-                error_no: 0,
-                data: {
-                    total_num,
-                    list: data
-                },
-                error_msg: ''
-            }
+            return new RM({data: {total_num, list: data}})
         } catch (e) {
             console.log(e)
             return {
