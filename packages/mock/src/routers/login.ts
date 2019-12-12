@@ -1,11 +1,10 @@
-const hapi_auth_github = require('hapi-auth-github')
+import { github_auth } from '../plugins/github-auth'
 const login = [
     {
         path: '/login',
         method: 'get',
         handler: function (req, res) {
-            var url = hapi_auth_github.login_url();
-            console.log(url);
+            var url = github_auth.login_url();
             return {
                 url
             }

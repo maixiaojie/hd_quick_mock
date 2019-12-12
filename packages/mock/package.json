@@ -14,7 +14,6 @@
     "boom": "^7.3.0",
     "env2": "^2.2.2",
     "hapi": "^18.1.0",
-    "hapi-auth-github": "git+https://github.com/maixiaojie/hapi-auth-github",
     "hapi-pino": "^6.3.0",
     "hapijs-status-monitor": "^1.0.1",
     "hoek": "^6.1.3",
