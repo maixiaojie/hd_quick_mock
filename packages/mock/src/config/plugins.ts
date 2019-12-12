@@ -8,4 +8,10 @@ let pino = {
 }
 export default [{
     plugin: require('hapijs-status-monitor')
+}, {
+    plugin: require('hapi-github-auth'),
+    options: {
+        SCOPE: 'user',
+        handler: custom_handler
+    }
 }]

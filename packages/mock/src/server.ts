@@ -6,7 +6,6 @@ import LoginRouter from './routers/login'
 import projectRouters from './routers/project'
 import indexController from './controllers/index';
 import { myMiddleware } from './plugins/request'
-import { github_auth } from './plugins/github-auth'
 import plugins from './config/plugins'
 const server: hapi.Server = new hapi.Server({
     host: 'localhost',
@@ -21,7 +20,6 @@ server.route(projectRouters);
 server.route(LoginRouter);
 async function start() {
     try {
-        await server.register(github_auth)
         await server.register(myMiddleware)
         await server.register(plugins)
         await server.start();
