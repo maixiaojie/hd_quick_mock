@@ -1,4 +1,3 @@
-require('env2')('.env');
 import * as hapi from 'hapi';
 import routers from './routers/index'
 import ApiRouters from './routers/api'
