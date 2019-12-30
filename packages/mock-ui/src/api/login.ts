@@ -1,6 +1,8 @@
-import Api from '@/utils/request'
+import request from '@/utils/request'
 
-export const getData = () => {
-  // return Api.getData()
+export const get_github_login_url = () => {
+  return request({
+    url: `/login`,
+    method: 'get'
+  })
 }
-

@@ -25,6 +25,7 @@
               <a-menu-item key="4">退出登录</a-menu-item>
             </a-menu>
           </a-dropdown>
+          <a-icon @click="github_login" style="margin-left: 8px;font-size: 18px;vertical-align: sub;cursor: pointer;" type="github" />
           <a-spin :spinning="loading">
             <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
           </a-spin>
