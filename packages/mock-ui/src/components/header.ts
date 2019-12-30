@@ -25,8 +25,10 @@ export default class Header extends Vue {
 		//
 	}
 	async github_login() {
-		let data = await get_github_login_url()
-		console.log(data)
+		let data: any = await get_github_login_url()
+		if (data && data.url) {
+			window.location.href = data.url
+		}
 	}
 	MenuSelect(item: MenuItem) {
 		this.$router.push({
