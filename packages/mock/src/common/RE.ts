@@ -1,6 +1,6 @@
 const internals: any = {
     error_no: new Map([
-        [200, 'ok']
+        [0, 'ok']
     ])
 }
 internals.initialize = function (err, error_no) {
@@ -27,7 +27,7 @@ internals.reformat = function() {
 export default class RE extends Error {
     constructor(message, options: any = {}) {
         super()
-        const { error_no = 200, data = {}, ctor = RE } = options
+        const { error_no = 0, data = {}, ctor = RE } = options
         const error: any = new Error(message ? message : undefined)
         Error.captureStackTrace(error, ctor)
         error.data = data;

@@ -6,7 +6,7 @@ const login = [
         handler: function (req, res) {
             var url = haiGithubAuth.plugin.login_url();
             return {
-                error_no: 200,
+                error_no: 0,
                 data: {
                     url
                 }

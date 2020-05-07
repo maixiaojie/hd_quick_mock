@@ -6,6 +6,9 @@
     "@types/node": "^12.12.14",
     "lerna": "^3.18.5"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "sass-loader": "^8.0.0"
   }
